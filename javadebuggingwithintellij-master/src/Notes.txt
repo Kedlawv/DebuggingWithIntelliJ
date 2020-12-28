@@ -1,0 +1,42 @@
+Step Over => continue to the next line of the program
+Step Into => go inside a method
+Step Out => move control out of the method
+Smart Step Into => Run/DebuggingActions/ -> when a line of code has multiple
+    method calls we can choose which method we step into
+Run to Cursor => During debug run we can move control flow to a line with a cursor
+    without placing any break points (will stop if there is a break point on the way)
+Force Run to Cursor => will skip over any breakpoints between current line and the cursor
+
+Watches => a glasses icon on the bottom left of the variables window
+    We can watch specific variables, in case of objects we can choose to watch
+    properties of the objects and we can use expressions as person.getAge()>30
+
+We can evaluate expression one by one by clicking the variable during debug run and
+    choosing Evaluate Expression, works like a Watch but it is a one off
+
+We can change the value of a variable at debug runtime by choosing the variable in the
+    variable debug window and pressing F2 or right click and Set Value
+
+Filtering => We can filter arrays and collections by clicking on the object in the
+    variable list and choosing Filter. We supply a condition i.e this.getAge() < 40
+    where this refers to an item in the array
+
+Conditional Breakpoint => When we place a break point inside of the loop for example
+    and maybe one of a thousand iterations throws an error we can set a condition
+    on the break point to stop execution only if a certain condition is met
+    i.e iterating on the list where we expect a Person type and we get a String
+    we can right click on the break point and set condition like
+    !(personList.get(i) instanceof Person)
+    When the condition will evaluate to true the execution of the program will break
+
+Exception breakpoints => Run/ViewBreakpoints -> Exception break points are set
+    globally, we do not assign them to any particular line of code.
+    We can choose type of the exception and we can set various filters on the break point
+
+Method breakpoints => we can put a break point on the method, diamond shape, execution
+    will break on the entry and exit. Alternatively we can set up a break point
+    in the View Breakpoints window, we fully qualify the class and we can choose
+    one or more methods with a pattern i.e get*
+
+Action Breakpoint => right click , yellow dot -> will not stop execution but it can
+    log a message to the console when hit , can evaluate an expression
