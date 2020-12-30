@@ -40,3 +40,39 @@ Method breakpoints => we can put a break point on the method, diamond shape, exe
 
 Action Breakpoint => right click , yellow dot -> will not stop execution but it can
     log a message to the console when hit , can evaluate an expression
+
+Force return => when control flow is halted inside a method we can return an arbitrary
+    value from the method without the method finishing execution
+    (frames -> right click on corresponding frame)
+Throw exception => similar to Force return , we can throw an arbitrary exception from
+    within the method
+
+Field Watchpoints => (eye icon) a kind of conditional break point , will break if
+    a field is being accessed or modified
+
+Class Level Watch => during debug we can place a watch on a specific class
+    right click in the variables window on an object of a class and
+        -> New Class Level Watch , i.e this.getAge() > 20
+
+Drop Frame => a kind of rewind feature for debugging -> we can go back to the earlier
+    in the debug execution by selecting an earlier frame -> right click -> drop frames
+    all frames after the clicked framed will be dropped and execution will return to
+    the selected frame. Warning ! Local variables will be reset but global ones will not
+
+Advanced Debugging Section ------------------------------------------------------------
+
+Stream and Lambda => when break point is placed on the line of code with a stream operation
+    and multiple method calls we can choose which stream operation to debug
+    When we debug a stream a button Stream Current Stream Chain is available
+    It will show us details of every operation in the chain
+
+Control Stepping => File/Settings/Build,Execution,Deployment/Debugger/Stepping
+    -> to avoid stepping into framework code during debugging we can add packages to the
+     exclusion list i.e org.springframework.*
+
+Custom Datatype Renderers => we can change the way objects are represented inside the
+    debugger variable window. File/Settings/Build/Debugger/Data Views/Java Type Renderers
+    -> we ad a class to the list and we supply an expression for rendering a node
+    i.e String.format("Name: %s | Age: %s | Country: %s",this.getName(),this.getAge(),this.getCountry())
+    Custom renderers are expensive, we can make them OnDemand or we can mute them from right click menu
+
